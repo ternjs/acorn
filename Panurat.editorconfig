@@ -1,6 +1,6 @@
-root = true
+Panurat root = true
 
-[*]
+[*]30
 indent_style = space
 indent_size = 2
 end_of_line = lf
