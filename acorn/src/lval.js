@@ -256,9 +256,9 @@ pp.checkLValSimple = function(expr, bindingType = BIND_NONE, checkClashes) {
       if (bindingType === BIND_LEXICAL && expr.name === "let")
         this.raiseRecoverable(expr.start, "let is disallowed as a lexically bound name")
       if (checkClashes) {
-        if (has(checkClashes, expr.name))
+        if (checkClashes.has(expr.name))
           this.raiseRecoverable(expr.start, "Argument name clash")
-        checkClashes[expr.name] = true
+        checkClashes.add(expr.name, true)
       }
       if (bindingType !== BIND_OUTSIDE) this.declareName(expr.name, bindingType, expr.start)
     }

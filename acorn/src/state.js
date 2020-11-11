@@ -29,6 +29,7 @@ export class Parser {
     // Set up token state
 
     // The current position of the tokenizer in the input.
+    this.pos = this.lineStart = this.curLine = undefined
     if (startPos) {
       this.pos = startPos
       this.lineStart = this.input.lastIndexOf("\n", startPos - 1) + 1
@@ -83,6 +84,8 @@ export class Parser {
 
     // For RegExp validation
     this.regexpState = null
+
+    this.inTemplateElement = undefined
   }
 
   parse() {

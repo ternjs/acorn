@@ -924,9 +924,9 @@ pp.isSimpleParamList = function(params) {
 // or "arguments" and duplicate parameters.
 
 pp.checkParams = function(node, allowDuplicates) {
-  let nameHash = {}
+  let paramNames = new Set()
   for (let param of node.params)
-    this.checkLValInnerPattern(param, BIND_VAR, allowDuplicates ? null : nameHash)
+    this.checkLValInnerPattern(param, BIND_VAR, allowDuplicates ? null : paramNames)
 }
 
 // Parses a comma-separated list of expressions, and returns them as

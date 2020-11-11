@@ -94,10 +94,7 @@ export const defaultOptions = {
 let warnedAboutEcmaVersion = false
 
 export function getOptions(opts) {
-  let options = {}
-
-  for (let opt in defaultOptions)
-    options[opt] = opts && has(opts, opt) ? opts[opt] : defaultOptions[opt]
+  let options = { ...defaultOptions, ...opts }
 
   if (options.ecmaVersion === "latest") {
     options.ecmaVersion = 1e8
