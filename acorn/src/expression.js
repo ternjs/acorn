@@ -476,7 +476,7 @@ pp.parseExprAtom = function(refDestructuringErrors) {
     return this.parseTemplate()
 
   case tt._import:
-    if (this.options.ecmaVersion >= 11) {
+    if (this.options.ecmaVersion >= 11 || this.options.sourceType === "module") {
       return this.parseExprImport()
     } else {
       return this.unexpected()

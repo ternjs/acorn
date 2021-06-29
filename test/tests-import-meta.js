@@ -122,7 +122,6 @@ test(
   { ecmaVersion: 11, sourceType: "module" }
 );
 
-testFail("import.meta", "Unexpected token (1:6)", { ecmaVersion: 10, sourceType: "module" });
 testFail("import.meta", "Cannot use 'import.meta' outside a module (1:0)", { ecmaVersion: 11, sourceType: "script" });
 testFail("import['meta']", "Unexpected token (1:6)", { ecmaVersion: 11, sourceType: "module" });
 testFail("a = import['meta']", "Unexpected token (1:10)", { ecmaVersion: 11, sourceType: "module" });

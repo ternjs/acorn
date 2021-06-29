@@ -31,11 +31,6 @@ test("import ''", {
   sourceType: "module"
 });
 
-testFail("import('')", "Unexpected token (1:6)", {
-  ecmaVersion: 5,
-  sourceType: "module"
-});
-
 test("new Object", {
   type: "Program",
   start: 0,

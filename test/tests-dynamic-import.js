@@ -35,6 +35,35 @@ test(
   { ecmaVersion: 11 }
 );
 
+test(
+  "import('dynamicImport.js')",
+  {
+    type: 'Program',
+    start: 0,
+    end: 26,
+    body: [
+      {
+        type: 'ExpressionStatement',
+        start: 0,
+        end: 26,
+        expression: {
+          type: 'ImportExpression',
+          start: 0,
+          end: 26,
+          source: {
+            type: 'Literal',
+            start: 7,
+            end: 25,
+            value: 'dynamicImport.js',
+            raw: "'dynamicImport.js'"
+          }
+        }
+      }
+    ],
+  },
+  { ecmaVersion: 5,  sourceType: 'module' }
+);
+
 // Assignment is OK.
 test(
   "import(a = 'dynamicImport.js')",
@@ -212,12 +241,6 @@ testFail('function failsParse() { return import.then(); }', 'The only valid meta
 testFail("var dynImport = import; dynImport('http');", 'Unexpected token (1:22)', {
   ecmaVersion: 11,
   loose: false
-});
-
-testFail("import('test.js')", 'Unexpected token (1:6)', {
-  ecmaVersion: 10,
-  loose: false,
-  sourceType: 'module'
 });
 
 testFail("import()", 'Unexpected token (1:7)', {
